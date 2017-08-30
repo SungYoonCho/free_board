@@ -1,0 +1,22 @@
+<body>
+  <br><h1>글수정</h1><br>
+      <nav>
+      <h3><span class="label label-success">접속 계정: <%= current_user.email %> &nbsp; <a href="/logout">Logout</a></span></h3>
+    </nav>
+  &nbsp;&nbsp;&nbsp;<a href="/"><button class="btn btn-default">Userpage</button></a>
+  
+  <div class="container">
+    <form action="/question/update/<%= @one_post.id %>" method="POST">
+      <div class="form-group">
+        <label for="UpdateTitle1">Title</label>
+        <input type="text" name="update_title" value="<%= @one_post.title %>" class="form-control" id="UpdateTitle1" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="UpdateName1">Name</label>
+        <input type="text" name="update_name" value="<%= @one_post.name %>" class="form-control" id="UpdateName1" placeholder="Name">
+      </div>
+      <textarea name="update_content" class="form-control" rows="3" placeholder="Content"><%= @one_post.content %></textarea>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</body>

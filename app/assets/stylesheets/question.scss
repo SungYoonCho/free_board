@@ -1,0 +1,43 @@
+// Place all the styles related to the question controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#comment_text {
+    width: 45%;
+}
+
+nav {
+    float: right;
+    clear: left;
+}
+
+#login {
+    position: relative;
+    top: 200px;
+}
+
+#login_box {
+    position: relative;
+    left: 500px;
+}
+
+#message {
+    position: relative;
+    top: 300px;
+}
+
+#message_box {
+    position: relative;
+    left: 500px;
+}
+
+#but {
+    position: relative;
+    left: 80px;
+}
+
+#stop {
+    position: relative;
+    right: 30px;
+}

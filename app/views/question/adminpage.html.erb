@@ -1,0 +1,67 @@
+<body>
+  <br><h1 id="head">&nbsp;Adminpage</h1><br><br>
+  <h2>&nbsp;익명게시판</h2><br>
+    <nav>
+      <h3><span class="label label-success">접속 계정: <%= current_user.email %> &nbsp; <a href="/logout">Logout</a></span></h3>
+    </nav>
+  &nbsp;&nbsp;&nbsp;<a href="/question/write"><button class="btn btn-default">글쓰기</button></a>
+  
+  <div class="col-md-12">
+  	<div class="wdgt wdgt-primary" hide-btn="true">
+  		<div class="wdgt-header"><i class="fa fa-group">&nbsp;</i>Posts</div>
+  		<div class="wdgt-body wdgt-table">
+  			<table class="table table-striped">
+  				<thead>
+  					<tr>
+  						<th>Num</th>
+  						<th>Name</th>
+  						<th>Title</th>
+  						<th></th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  				  <% @qs.each do |q|%>
+    					<tr>
+    						<td><%= q.id %></td>
+    						<td><span class="label label-warning"><%= q.name %></span></td>
+    						<td><a href="/question/post/<%= q.id %>"><%= q.title %></a></td>
+    						<td>
+    							<a href="/question/destroy/<%= q.id %>"><button type="button" class="btn btn-primary btn-table"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+    						</td>
+    					</tr>
+  					<% end %>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+  </div>
+  <br>
+  <h2>&nbsp;회원가입된 유저</h2><br>
+  <div class="col-md-12">
+  	<div class="wdgt wdgt-primary" hide-btn="true">
+  		<div class="wdgt-header"><i class="fa fa-group">&nbsp;</i>Users</div>
+  		<div class="wdgt-body wdgt-table">
+  			<table class="table table-striped">
+  				<thead>
+  					<tr>
+  						<th>User id</th>
+  						<th>E-mail</th>
+  						<th>생성된 시간</th>
+  						<th>마지막 로그인 시간</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  				  <% @user.each do |u|%>
+    					<tr>
+    						<td><%= u.id %></td>
+    						<td><span class="label label-warning"><%= u.email %></span></td>
+    						<td><%= u.created_at %></td>
+    						<td><%= u.last_sign_in_at %></td>
+    					</tr>
+  					<% end %>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+  </div>
+</body>

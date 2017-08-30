@@ -1,0 +1,36 @@
+<body>
+  <br><h1>&nbsp;Userpage</h1><br><br>
+  
+  <h2>&nbsp;익명게시판</h2><br>
+    <nav>
+      <h3><span class="label label-success">접속 계정: <%= current_user.email %> &nbsp; <a href="/logout">Logout</a></span></h3>
+    </nav>
+  &nbsp;&nbsp;&nbsp;<a href="/question/write"><button class="btn btn-default">글쓰기</button></a>
+  
+  
+  <div class="col-md-12">
+  	<div class="wdgt wdgt-primary" hide-btn="true">
+  		<div class="wdgt-header"><i class="fa fa-group">&nbsp;</i>Posts</div>
+  		<div class="wdgt-body wdgt-table">
+  			<table class="table table-striped">
+  				<thead>
+  					<tr>
+  						<th>Num</th>
+  						<th>Name</th>
+  						<th>Title</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  				  <% @qs.each do |q|%>
+    					<tr>
+    						<td><%= q.id %></td>
+    						<td><span class="label label-warning"><%= q.name %></span></td>
+    						<td><a href="/question/post/<%= q.id %>"><%= q.title %></a></td>
+    					</tr>
+  					<% end %>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+  </div>
+</body>
